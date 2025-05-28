@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Banque Prestige - Votre Compte Sécurisé</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="main-container">
+        <div id="login-page" class="page fade-in-up active">
+            <div class="card login-card">
+                <div class="bank-logo-area">
+                    <i class="fas fa-gem bank-icon"></i>
+                    <h1>Banque Prestige</h1>
+                </div>
+                <h2>Connectez-vous à votre espace</h2>
+                <p class="tagline">Votre sécurité, notre priorité.</p>
+                <div class="input-group">
+                    <i class="fas fa-user icon"></i>
+                    <input type="text" id="username" placeholder="Identifiant" value="schmidt.frieda">
+                </div>
+                <div class="input-group">
+                    <i class="fas fa-lock icon"></i>
+                    <input type="password" id="password" placeholder="Mot de passe" value="mdp97000">
+                </div>
+                <button id="login-btn" class="btn primary-btn">Se connecter</button>
+                <p id="error-message" class="error-message"></p>
+                <p class="small-link">Mot de passe oublié ? | Aide</p>
+            </div>
+        </div>
+
+        <div id="account-page" class="page fade-in-up">
+            <header class="account-header">
+                <div class="header-left">
+                    <i class="fas fa-gem bank-icon-small"></i>
+                    <h1 class="header-title">Mon Espace Client</h1>
+                </div>
+                <button id="logout-btn" class="btn secondary-btn">Déconnexion <i class="fas fa-sign-out-alt"></i></button>
+            </header>
+            <div class="account-content">
+                <div class="card account-summary-card">
+                    <h2 class="card-title"><i class="fas fa-money-check-alt"></i> Résumé de mes comptes</h2>
+                    <div class="account-info">
+                        <p class="account-type">Compte Courant</p>
+                        <p class="account-number">FR76 1234 5678 9012 3456 7890 123</p>
+                        <p class="account-holder-name-display">SCHMIDT FRIEDA</p>
+                        <div class="balance-section">
+                            <p class="balance-label">Solde disponible</p>
+                            <div class="balance-display blocked-status">
+                                <span id="animated-balance" class="animated-number">0</span><span class="currency">$</span>
+                            </div>
+                            <div class="status-box blocked-status-box">
+                                <i class="fas fa-ban status-icon"></i>
+                                <span class="status-message-text">Compte actuellement bloqué</span>
+                            </div>
+                            <p class="status-detail-text">Veuillez contacter votre conseiller pour plus d'informations.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card operations-card">
+                    <h2 class="card-title"><i class="fas fa-list-alt"></i> Dernières opérations</h2>
+                    <ul class="operation-list">
+                        <li class="operation-item">
+                            <span class="op-date">25/05/2025</span>
+                            <span class="op-description">Virement reçu - Salaire</span>
+                            <span class="op-amount positive">+ 3 200.00 $</span>
+                        </li>
+                        <li class="operation-item">
+                            <span class="op-date">22/05/2025</span>
+                            <span class="op-description">Prélèvement - Loyer</span>
+                            <span class="op-amount negative">- 850.00 $</span>
+                        </li>
+                        <li class="operation-item">
+                            <span class="op-date">20/05/2025</span>
+                            <span class="op-description">Achat carte - Supermarché</span>
+                            <span class="op-amount negative">- 75.50 $</span>
+                        </li>
+                        <li class="operation-item">
+                            <span class="op-date">18/05/2025</span>
+                            <span class="op-description">Virement émis - Épargne</span>
+                            <span class="op-amount negative">- 500.00 $</span>
+                        </li>
+                    </ul>
+                    <button class="btn secondary-btn view-all-btn">Voir toutes les opérations <i class="fas fa-chevron-right"></i></button>
+                </div>
+
+                <div class="card services-card">
+                    <h2 class="card-title"><i class="fas fa-cogs"></i> Mes services</h2>
+                    <ul class="service-list">
+                        <li><i class="fas fa-exchange-alt"></i> Effectuer un virement</li>
+                        <li><i class="fas fa-file-invoice-dollar"></i> Consulter mes relevés</li>
+                        <li><i class="fas fa-headset"></i> Contacter mon conseiller</li>
+                        <li><i class="fas fa-book"></i> Demander un chéquier</li>
+                    </ul>
+                </div>
+            </div>
+            <footer class="account-footer">
+                <p>&copy; 2025 Banque Prestige. Tous droits réservés.</p>
+            </footer>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

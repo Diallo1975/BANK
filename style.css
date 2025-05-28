@@ -1,0 +1,520 @@
+/* Importation de Google Fonts (Montserrat et Open Sans) */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Open+Sans:wght@400;600&display=swap');
+
+/* Variables CSS pour faciliter les changements de thème */
+:root {
+    --primary-color: #3f51b5; /* Bleu profond */
+    --primary-dark: #303f9f;
+    --accent-color: #4CAF50; /* Vert pour succès */
+    --accent-dark: #388E3C;
+    --error-color: #f44336; /* Rouge pour erreur/bloqué */
+    --warning-color: #ff9800; /* Orange pour avertissement */
+    --bg-color: #f5f7fa; /* Arrière-plan doux */
+    --card-bg: #ffffff;
+    --text-color: #333;
+    --light-text-color: #666;
+    --border-color: #e0e0e0;
+    --shadow-light: 0 4px 15px rgba(0, 0, 0, 0.08);
+    --shadow-medium: 0 8px 25px rgba(0, 0, 0, 0.12);
+    --radius-small: 8px;
+    --radius-medium: 12px;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    background-color: var(--bg-color);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Alignement en haut pour le défilement */
+    min-height: 100vh;
+    color: var(--text-color);
+    font-size: 16px;
+    line-height: 1.6;
+    overflow-x: hidden; /* Empêche le défilement horizontal */
+}
+
+.main-container {
+    width: 100%;
+    max-width: 480px; /* Taille optimisée pour mobile */
+    box-sizing: border-box;
+    padding: 20px;
+    position: relative;
+    overflow: hidden; /* Pour gérer les animations de page */
+}
+
+/* Base de Page */
+.page {
+    display: none;
+    width: 100%;
+    box-sizing: border-box;
+    padding-bottom: 50px; /* Espace pour le pied de page */
+}
+
+.page.active {
+    display: block;
+}
+
+/* Animations d'entrée de page */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.page.fade-in-up.active {
+    animation: fadeInUp 0.5s ease-out forwards;
+}
+
+/* Cartes (Containers d'informations) */
+.card {
+    background-color: var(--card-bg);
+    border-radius: var(--radius-medium);
+    box-shadow: var(--shadow-light);
+    padding: 25px;
+    margin-bottom: 20px;
+    text-align: center;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-medium);
+}
+
+.card-title {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 20px;
+    color: var(--primary-color);
+    margin-top: 0;
+    margin-bottom: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card-title .fas {
+    margin-right: 10px;
+    color: var(--primary-color);
+    font-size: 22px;
+}
+
+
+/* Boutons */
+.btn {
+    padding: 12px 25px;
+    border: none;
+    border-radius: var(--radius-small);
+    cursor: pointer;
+    font-size: 17px;
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.1s ease, box-shadow 0.3s ease;
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.btn:active {
+    transform: translateY(0);
+    box-shadow: none;
+}
+
+.primary-btn {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.primary-btn:hover {
+    background-color: var(--primary-dark);
+}
+
+.secondary-btn {
+    background-color: var(--bg-color);
+    color: var(--primary-color);
+    border: 1px solid var(--primary-color);
+}
+
+.secondary-btn:hover {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.btn .fas {
+    margin-left: 8px;
+    font-size: 14px;
+}
+
+/* Page de Connexion */
+.login-card {
+    padding-top: 40px;
+    padding-bottom: 40px;
+    margin-top: 50px; /* Centre la carte verticalement */
+}
+
+.bank-logo-area {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+.bank-icon {
+    font-size: 48px;
+    color: var(--primary-color);
+    margin-right: 15px;
+}
+
+.bank-logo-area h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    font-size: 32px;
+    color: var(--primary-color);
+    margin: 0;
+}
+
+h2 {
+    font-family: 'Montserrat', sans-serif;
+    color: var(--primary-color);
+    margin-bottom: 10px;
+    font-weight: 700;
+    font-size: 26px;
+}
+
+.tagline {
+    font-size: 15px;
+    color: var(--light-text-color);
+    margin-bottom: 30px;
+}
+
+.input-group {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.input-group .icon {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--light-text-color);
+    font-size: 18px;
+}
+
+input[type="text"],
+input[type="password"] {
+    width: calc(100% - 60px); /* Ajuste pour l'icône */
+    padding: 14px 14px 14px 50px; /* Padding à gauche pour l'icône */
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-small);
+    font-size: 16px;
+    outline: none;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(63, 81, 181, 0.2);
+}
+
+.error-message {
+    color: var(--error-color);
+    margin-top: 15px;
+    font-weight: 600;
+    font-size: 15px;
+}
+
+.small-link {
+    font-size: 14px;
+    margin-top: 25px;
+    color: var(--light-text-color);
+    text-decoration: none;
+    cursor: pointer;
+}
+.small-link:hover {
+    color: var(--primary-color);
+}
+
+/* Page du Compte - En-tête */
+.account-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--primary-color);
+    color: white;
+    padding: 15px 20px;
+    border-radius: var(--radius-medium) var(--radius-medium) 0 0;
+    box-shadow: var(--shadow-medium);
+    z-index: 10;
+    position: sticky;
+    top: 0;
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+}
+
+.bank-icon-small {
+    font-size: 32px;
+    color: white;
+    margin-right: 10px;
+}
+
+.header-title {
+    font-family: 'Montserrat', sans-serif;
+    color: white;
+    margin: 0;
+    font-size: 22px;
+    font-weight: 600;
+}
+
+.account-content {
+    padding-top: 0px; /* Colle au header */
+    background-color: var(--bg-color);
+    border-radius: 0 0 var(--radius-medium) var(--radius-medium);
+}
+
+/* Cartes de la page du compte */
+.account-summary-card {
+    text-align: left;
+    margin-top: -15px; /* Superpose légèrement sur le header */
+    position: relative;
+    z-index: 1;
+}
+
+.account-info {
+    padding-bottom: 15px;
+}
+
+.account-type {
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--primary-color);
+    margin-bottom: 5px;
+}
+
+.account-number {
+    font-size: 14px;
+    color: var(--light-text-color);
+    margin-bottom: 15px;
+}
+
+/* Nom du titulaire - GRAND ET GRAS */
+.account-holder-name-display {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 24px; /* Plus grand */
+    font-weight: 800; /* Plus gras */
+    color: var(--text-color);
+    margin-bottom: 25px; /* Plus d'espace */
+    text-transform: uppercase; /* Tout en majuscules */
+}
+
+/* Section du Solde */
+.balance-section {
+    background-color: #e3f2fd; /* Couleur de fond légère pour la section solde */
+    border-radius: var(--radius-small);
+    padding: 20px;
+    border: 1px solid #bbdefb;
+    box-shadow: inset 0 1px 5px rgba(0,0,0,0.05);
+}
+
+.balance-label {
+    font-size: 15px;
+    color: var(--primary-dark);
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.balance-display {
+    font-family: 'Montserrat', monospace; /* Police monospace pour les chiffres */
+    font-size: 42px; /* Très grand */
+    font-weight: 800; /* Très gras */
+    color: var(--accent-color); /* Vert par défaut */
+    margin-top: 0;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: baseline; /* Aligne le $ */
+    justify-content: center;
+}
+
+.currency {
+    font-size: 0.7em; /* $ plus petit que le chiffre */
+    margin-left: 5px;
+    opacity: 0.8;
+}
+
+.balance-display.blocked-status {
+    color: var(--error-color); /* Rouge pour le solde bloqué */
+}
+
+/* Statut du compte bloqué */
+.status-box {
+    background-color: var(--error-color);
+    color: white;
+    padding: 10px 15px;
+    border-radius: var(--radius-small);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+    font-weight: 700;
+    font-size: 16px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.status-icon {
+    margin-right: 10px;
+    font-size: 20px;
+}
+
+.status-detail-text {
+    font-size: 14px;
+    color: var(--light-text-color);
+    margin-bottom: 0;
+    font-style: italic;
+}
+
+
+/* Dernières Opérations */
+.operations-card {
+    text-align: left;
+}
+
+.operation-list {
+    list-style: none;
+    padding: 0;
+    margin-top: 20px;
+}
+
+.operation-item {
+    display: flex;
+    flex-wrap: wrap; /* Permet aux éléments de passer à la ligne */
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.operation-item:last-child {
+    border-bottom: none;
+}
+
+.op-date {
+    font-size: 13px;
+    color: var(--light-text-color);
+    flex-basis: 100%; /* Prend toute la largeur sur mobile */
+    margin-bottom: 5px;
+}
+
+.op-description {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--text-color);
+    flex-grow: 1; /* Prend l'espace restant */
+}
+
+.op-amount {
+    font-size: 16px;
+    font-weight: 700;
+    flex-shrink: 0; /* Ne rétrécit pas */
+    margin-left: 10px;
+}
+
+.op-amount.positive {
+    color: var(--accent-color);
+}
+
+.op-amount.negative {
+    color: var(--error-color);
+}
+
+.view-all-btn {
+    margin-top: 20px;
+}
+
+/* Mes Services */
+.services-card {
+    text-align: left;
+}
+
+.service-list {
+    list-style: none;
+    padding: 0;
+    margin-top: 20px;
+}
+
+.service-list li {
+    display: flex;
+    align-items: center;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--border-color);
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    font-size: 16px;
+    color: var(--text-color);
+    font-weight: 600;
+}
+
+.service-list li:last-child {
+    border-bottom: none;
+}
+
+.service-list li:hover {
+    background-color: var(--bg-color);
+    border-radius: var(--radius-small);
+}
+
+.service-list li .fas {
+    margin-right: 15px;
+    color: var(--primary-color);
+    font-size: 18px;
+}
+
+/* Pied de page */
+.account-footer {
+    text-align: center;
+    padding: 25px 20px;
+    font-size: 13px;
+    color: var(--light-text-color);
+    margin-top: 30px;
+}
+
+/* Responsive pour de très petits écrans (ex: iPhone SE) */
+@media (max-width: 375px) {
+    .main-container {
+        padding: 15px;
+    }
+    .card {
+        padding: 20px;
+    }
+    h2 {
+        font-size: 22px;
+    }
+    .bank-logo-area h1 {
+        font-size: 28px;
+    }
+    .bank-icon {
+        font-size: 40px;
+    }
+    .balance-display {
+        font-size: 38px;
+    }
+    .account-holder-name-display {
+        font-size: 20px;
+    }
+}
